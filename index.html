@@ -292,6 +292,50 @@
 
 <!-- Publications -->
 <section id="papers" class="home-section wg-papers" style="padding: 20px 0;">
+  <style>
+    /* 리스트 자체 리셋 */
+    .ul-papers {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    /* 항목을 가로 정렬: 이미지 왼쪽, 텍스트 오른쪽 */
+    .ul-papers > li {
+      display: flex;
+      align-items: flex-start;     /* 텍스트 상단 정렬 */
+      gap: 16px;
+      margin-bottom: 28px;         /* 항목 간 간격 */
+    }
+
+    /* 썸네일 박스: 크기 통일 + 자르기 */
+    .ul-papers .img {
+      flex: 0 0 260px;             /* 고정 너비(원하면 200~320px로 조절) */
+      max-width: 100%;
+    }
+
+    /* 이미지 자체: 박스에 맞춰 꽉 채우기 */
+    .ul-papers .img img {
+      width: 100%;
+      aspect-ratio: 16 / 9;        /* 통일된 비율(필요시 4/3 등으로 교체) */
+      object-fit: cover;           /* 넘치는 부분 잘라서 채우기 */
+      display: block;              /* 인라인 이미지 공백 제거 */
+      border-radius: 4px;          /* 선택 */
+    }
+
+    /* 본문 영역은 남은 공간 모두 */
+    .ul-papers .description {
+      flex: 1 1 auto;
+      min-width: 0;                /* 긴 제목 줄바꿈 안정화 */
+    }
+
+    /* 타이포/여백 정리(선택) */
+    .ul-papers .title { margin: 0 0 4px; font-weight: 700; }
+    .ul-papers .authors { margin: 0 0 4px; }
+    .ul-papers .venue { margin: 0 0 6px; font-style: italic; }
+    .ul-papers .resources { margin: 0; }
+
+  </style>
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
