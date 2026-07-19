@@ -1,538 +1,326 @@
-<!DOCTYPE html>
-<html lang="en-us">
-
+<!doctype html>
+<html>
 <head>
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200..1000&family=Open+Sans:wght@300..800&family=Roboto:wght@100..900&family=Winky+Sans:wght@300..900&display=swap" rel="stylesheet">
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Source Themes Academic 4.7.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Sunyoung Jung">
+<title>Sunyoung Jung's Homepage</title>
+<link href="AboutPageAssets/styles/aboutPageStyle.css" rel="stylesheet" type="text/css">
 
-  <meta name="author" content="Sunyoung Jung">
-  <meta name="description" content="PhD Student">
-  <link rel="alternate" hreflang="en-us" href="/">
-  <meta name="theme-color" content="#2962ff">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous"> 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin="anonymous">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js" integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin="anonymous" async></script>
-  
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
-  <link rel="stylesheet" href="./css/academic.css">
-  <link rel="stylesheet" href="./css/dark-theme.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
-  <link rel="alternate" href="./index.xml" type="application/rss+xml" title="Sunyoung Jung">
-  <link rel="manifest" href="./index.webmanifest">
+<style>
+  /* ====== Font Styling ====== */
+  body, h1, h2, h3, h4, h5, h6, p, a, span, div, li, button, input, textarea, section, footerNote, footerDisclaimer {
+    font-family: 'Nunito', sans-serif !important;
+  }
 
+  /* ====== Font Sizes ====== */
+  .profileHeader { font-size: 16px !important; } /* Introduction */
+  .sectionTitle { font-size: 20px !important; }  /* Section Title */
+  .section1 { font-size: 17px; } /* New! */
+  .sectionContentTitle { font-size: 18px !important; } /* Paper Title */
+  .sectionContentSubTitle { font-size: 17px !important; } /* Author Names */
+  .dropdown { font-size: 15px !important; }  /* Gray Box */
 
-  <link rel="canonical" href="/">
-  <meta property="twitter:card" content="summary">
-  <meta property="og:site_name" content="Sunyoung Jung">
-  <meta property="og:url" content="/">
-  <meta property="og:title" content="Sunyoung Jung">
-  <meta property="og:description" content="PhD Student"><meta property="og:image" content="img/map[gravatar:%!s(bool=false) shape:circle]">
-  <meta property="twitter:image" content="img/map[gravatar:%!s(bool=false) shape:circle]"><meta property="og:locale" content="en-us">
-  
+  /* ====== Paper title / author spacing ====== */
+  .sectionContentTitle { margin-top: 0 !important; margin-bottom: 4px !important; line-height: 1.3 !important; }
+  .sectionContentSubTitle { margin-top: 0 !important; margin-bottom: 4px !important; }
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "/?q={search_term_string}",
-    "query-input": "required name=search_term_string"
-  },
-  "url": "/"
-}
-</script>
-  <title>Sunyoung Jung</title>
+  /* ====== Profile ====== */
+  .profilePhoto { margin-bottom: 120px !important; }
 
+  /* ====== Publications: robust per-paper flex row (thumbnail + body always top-aligned) ====== */
+  .pubList { clear: both; }
+  .pub {
+    display: flex;
+    align-items: flex-start;
+    gap: 26px;
+    margin-bottom: 34px;
+  }
+  .pub .pubThumb { flex: 0 0 34%; max-width: 34%; }
+  .pub .pubThumb img,
+  .pub .pubThumb video {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+  }
+  .pub .pubBody { flex: 1 1 auto; min-width: 0; }
+  .pub .section2Content {
+    margin: 0 !important;
+    width: 100% !important;
+    padding: 0 !important;
+    text-align: left !important;
+  }
+  .pub .externalResourcesNav {
+    margin: 10px 0 0 0 !important;
+    padding: 0 !important;
+    text-align: left !important;
+  }
+  .pub .externalResourcesNav .dropdown {
+    margin: 0 8px 0 0 !important;
+  }
+  @media only screen and (max-width: 760px) {
+    .pub { flex-direction: column; gap: 10px; }
+    .pub .pubThumb { flex-basis: auto; max-width: 60%; width: 60%; }
+  }
+
+  /* ====== News list ====== */
+  .newsList { list-style: none; padding-left: 0; margin-top: 0; }
+  .newsList li { margin-bottom: 10px; line-height: 1.5; }
+  .newsDate { font-weight: 700; color: #282727; }
+  .venue { color: #b30000; font-style: normal; }
+</style>
 </head>
 
-<body id="top" data-spy="scroll" data-offset="70" data-target="#navbar-main" >
+<body alink = "#282727" vlink = "#9b9b9b" link = "#9b9b9b">
 
-  <aside class="search-results" id="search">
-  <div class="container">
-    <section class="search-header">
+<!-- Header content -->
+<header>
+  <div class="profilePhoto">
+	<br>
+	<br>
+    <img src="AboutPageAssets/images/profile.png" alt="Sunyoung Jung" width="263"> </div>
 
-      <div class="row no-gutters justify-content-between mb-3">
-        <div class="col-6">
-          <h1>Search</h1>
-        </div>
-        <div class="col-6 col-search-close">
-          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
-        </div>
-      </div>
-
-      <div id="search-box">
-        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
-        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
-      </div>
-
-    </section>
-    <section class="section-search-results">
-
-      <div id="search-hits">
-      </div>
-
-    </section>
-  </div>
-</aside>
-
-
-<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
-  <div class="container">
-    <div class="d-none d-lg-inline-flex">
-      <a class="navbar-brand" href="./">Sunyoung Jung</a>
-    </div>
-    
-    <button type="button" class="navbar-toggler" data-toggle="collapse"
-            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
-    <span><i class="fas fa-bars"></i></span>
-    </button>
-
-    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
-      <a class="navbar-brand" href="./">Sunyoung Jung</a>
-    </div>
-
-    <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content"> 
-      <ul class="navbar-nav d-md-inline-flex">
-        <li class="nav-item">
-          <a class="nav-link " href="./#about" data-target="#about"><span>Home</span></a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link " href="./#papers" data-target="#papers"><span>Publications</span></a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link " href="./#activities" data-target="#activities"><span>Academic Activities</span></a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link " href="./#awards" data-target="#awards"><span>Awards &amp; Honors</span></a>
-        </li>
-
-      </ul>
-    </div>
-
-    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
-      
-      <li class="nav-item">
-        <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" id="theme-switcher" href="#"><i class="far fa-sun"></i></a>
-      </li>
-
-    </ul>
-
-  </div>
-</nav>
-
-
-<span class="js-widget-page d-none"></span>
-
-<!-- About Me -->
-  <section id="about" class="home-section wg-about   " style="padding: 30px 0 20px 0;" >
-    <div class="container">
-
-<div class="row">
-  <div class="col-12 col-lg-4">
-    <div id="profile">
-      <img class="avatar avatar-circle" src="/authors/admin/JSunY.png" alt="Avatar">
-      <div class="portrait-title">
-        <h2>Sunyoung Jung</h2>
-        <h3>PhD Student</h3>
-        
-        <h3>
-          <a href="https://micv.yonsei.ac.kr/home" target="_blank" rel="noopener">
-          <span><b>MICV, Yonsei University</b></span>
-          </a>
-        </h3>
-      </div>
-
-      
-      <td>
-      <br>
-          <a href="cv/cv_sunyoung_260406.pdf"><b>CV</b></a>
-        | <a href="https://scholar.google.com/citations?hl=en&user=gdlXTqUAAAAJ"><b>Google Scholar</b></a>
-        | <a href="https://github.com/SunYJ-hxppy" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-        | <a href="https://www.linkedin.com/in/sunyoungjj7/" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-        | <a href="https://x.com/sunyoung_jung1" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
-      <br>
-      <br>
-      </td>
-
-    </div>
-  </div>
-  <div class="col-12 col-lg-8">
-
-    
-<br>
-<!-- <p> <strong>Hello, Welcome :)</strong></p> </p> -->
-<p>I am a Third-year Ph.D. student at Yonsei University, advised by
-<a href="https://scholar.google.com/citations?user=d4WCQbUAAAAJ&hl=en" target="_blank" rel="noopener"><strong>Prof. Seong Jae Hwang</strong></a>, in the
-<a href="https://micv.yonsei.ac.kr/home" target="_blank" rel="noopener"><strong>Medical Imaging and Computer Vision (MICV)</strong></a>. 
-<p>My doctoral research explores the capabilities of generative models within the domain of computer vision. I am actively working on problems in <b>video and image generation, motion transfer in video generation, and diffusion models</b>.
-<p>I am currently looking for a <span style="color:#ff0000; font-weight:bold;">Research Internship position</span>! Please feel free to contact me!</p>
-
-    <div class="row">
-<!--Contact-->
-      <div class="col-md-6">
-        <h3>Contact</h3>
-        <ul class="ul-contact fa-ul">
-          <li>          
-            <i class="fa-li fas fa-envelope"></i>
-            <div class="description">
-              <p class="course">sunyoungj@yonsei.ac.kr</p>
-
-            </div>
-          </li>       
-          <li>          
-            <i class="fa-li fas fa-map-marker"></i>
-            <div class="description">
-              <p class="course">Yonsei Engineering Research Park, Seoul, Republic of Korea</p>
-            </div>
-          </li>       
-        </ul>        
-      </div>
-
-      <div class="col-md-6">
-        <h3>Education</h3>
-        <ul class="ul-edu fa-ul">
-
-          
-          <li>
-            <i class="fa-li fas fa-graduation-cap"></i>
-            <div class="description">
-              <p class="course">PhD in Artificial Intelligence, 2025 - Present</p>
-              <p class="institution">Yonsei University, Seoul</p>
-            </div>
-          </li>
-          <li>
-            <i class="fa-li fas fa-graduation-cap"></i>
-            <div class="description">
-              <p class="course">MS in Electrical and Electronic Engineering, 2023 - 2025</p>
-              <p class="institution">Yonsei University, Seoul</p>
-            </div>
-          </li>
-          <li>
-            <i class="fa-li fas fa-graduation-cap"></i>
-            <div class="description">
-              <p class="course">BS in Biotechnology, 2021 - 2023</p>
-              <p class="institution">Yonsei University, Seoul</p>
-            </div>
-          </li>
-          <li>
-            <i class="fa-li fas fa-graduation-cap"></i>
-            <div class="description">
-              <p class="course">BS in Biomedical Engineering, 2019 - 2023</p>
-              <p class="institution">Yonsei University, Wonju</p>
-            </div>
-          </li>
-
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-
-    </div>
+  <!-- Identity details -->
+  <section class="profileHeader">
+    <h1>Sunyoung Jung</h1>
+    <hr>
+	I am a third-year Ph.D. student at <a href="https://www.yonsei.ac.kr/" target="_blank">Yonsei University</a>, advised by <a href="https://scholar.google.com/citations?user=d4WCQbUAAAAJ&hl=en" target="_blank">Prof. Seong Jae Hwang</a>, in the <b>Medical Imaging and Computer Vision (MICV)</b> lab. My doctoral research explores the capabilities of <b>generative models</b> within the domain of computer vision. I am actively working on problems in <b>video and image generation, motion transfer in video generation, and diffusion models</b>. I am also collaborating with <a href="https://scholar.google.com/citations?user=p9-ohHsAAAAJ&hl=en" target="_blank">Prof. Ming-Hsuan Yang</a> (UC Merced &amp; Google DeepMind).
+	<br>
+	<br>
+	I'd love to connect with people who share similar interests! Feel free to reach out via email!
   </section>
 
-<!-- Recent News -->
-  <section id="news" class="home-section wg-blank   " style="padding: 20px 0 20px 0;" >
-    <div class="container">
+  <!-- Links to Social network accounts -->
+  <aside class="socialNetworkNavBar">
+	<div class="socialNetworkNav">
+		<a href="AboutPageAssets/images/cv.pdf" target="_blank">
+      <img src="AboutPageAssets/images/cv.png" alt="CV" width="30"></a>  </div>
+	   <div class="socialNetworkNav">
+		   <a href="mailto:sunyoungj@yonsei.ac.kr">
+      <img src="AboutPageAssets/images/mail.png"  alt="Email" width="30" ></a> </div>
+    <div class="socialNetworkNav">
+		<a href="https://scholar.google.com/citations?hl=en&user=gdlXTqUAAAAJ" target="_blank">
+      <img src="AboutPageAssets/images/scholar.jpg"  alt="Google Scholar" width="30"></a>  </div>
+	  	  <div class="socialNetworkNav">
+		<a href="https://www.linkedin.com/in/sunyoungjj7/" target="_blank">
+      <img src="AboutPageAssets/images/linkedin.png" alt="LinkedIn" width="30"></a>  </div>
+    <div class="socialNetworkNav">
+		<a href="https://github.com/SunYJ-hxppy" target="_blank">
+      <img src="AboutPageAssets/images/github.png" alt="GitHub" width="30"></a>  </div>
+  </aside>
+</header>
 
-<div class="row">  
-    <div class="col-lg-12">
-      <h3>Recent News&#127881;</h3>      
-    
-<!-- Recent News-->
-<ul>
-  <li>[Sep 2025] 🎥 Initiated a research collaboration with <a href="https://www.rascafx.com/" target="_blank" rel="noopener noreferrer">Raska FX</a>, a movie VFX company specializing in visual effects production.</li>
-  <li>[Sep 2025] 🎉 One paper has been accepted to <b>NeurIPS 2025!</b></li>
-  <li>[Aug 2025] 🎉 Initiated research collaboration with <a href="https://scholar.google.com/citations?user=p9-ohHsAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Prof. Ming-Hsuan Yang (UC Merced & Google DeepMind)</a>.</li>
-  <li>[Jul 2025] 🔥 Our MICCAI2025 paper <b>"TESLA"</b> has been selected to an <span style="color:#ff0000; font-weight:bold;">Oral presentation (top 2.2%)</span></li>
-  <li>[Jun 2025] 🎉 One paper has been accepted to <b>MICCAI 2025!</b></li>
-  <li>[Mar 2025] 🎓 Joined MICV at Yonsei University for my PhD Program.</li>
-  <li>[Nov 2024] 🎉 Our research paper got a <span style="color:#ff0000; font-weight:bold;">Best Trainee Scientific Awards Poster Presentation (Gold)</span> in ICMRI 2024!</li>
-  <li>[Jun 2024] 🎉 One paper has been accepted to <b>MICCAI 2024</b>!</li>
-  <li>[Feb 2024] 🎉 One paper has been accepted to <b>ISMRM 2024</b> as an <span style="color:#ff0000; font-weight:bold;">Oral presentation</span>!</li>
+<!-- content -->
+<section class="mainContent">
 
-</ul>
-    </div>
-</div>
-    </div>
+  <br><br>
+
+  <!-- ===== New! ===== -->
+  <section class="section1">
+	<h2 class="sectionTitle">New! &#127881;</h2>
+	<hr class="sectionRule">
+
+	<ul class="newsList">
+	  <li><span class="newsDate">[2026.06]</span> Two papers, <b>&ldquo;Controlling Motion Transfer in Diffusion Transformers via Attention Heads&rdquo;</b> and <b>&ldquo;QWERTY: Training-Free Motion Control via Query-Warped Video Diffusion Transformers&rdquo;</b>, were accepted to <span class="venue">ECCV 2026</span>! &#127881;</li>
+	  <li><span class="newsDate">[2026.06]</span> Our paper <b>&ldquo;Anatomically Consistent TMJ Disc Segmentation via Semantic Anchoring and Clinical Priors&rdquo;</b> was accepted to <span class="venue">MICCAI 2026</span>!</li>
+	  <li><span class="newsDate">[2026.02]</span> Awarded the <b>Merit-based Scholarship for Science and Engineering Doctoral Students</b> and the <b>Seoul Future Foundation Scholarship</b>.</li>
+	  <li><span class="newsDate">[2025.09]</span> Our paper <b>&ldquo;Interpreting Vision Transformers via Residual Replacement Model&rdquo;</b> was accepted to <span class="venue">NeurIPS 2025</span>!</li>
+	  <li><span class="newsDate">[2025.08]</span> Initiated a research collaboration with <a href="https://scholar.google.com/citations?user=p9-ohHsAAAAJ&hl=en" target="_blank">Prof. Ming-Hsuan Yang (UC Merced &amp; Google DeepMind) and <a href="  https://www.rascafx.com/" target="_blank"></a>RASCA FX </a>.</li>
+	  <li><span class="newsDate">[2025.05]</span> <b>TESLA</b> was accepted to <span class="venue">MICCAI 2025</span> as an <b>Oral presentation (Top 2.2%)</b>! &#127881;</li>
+	</ul>
   </section>
 
-<!-- Research Experiences -->
-<section id="experience" class="home-section wg-blank   " style="padding: 10px 0 10px 0;" >
-<div class="container">
-<div class.="row">
-    <div class="col-lg-12">
-    <h1>Research Experiences</h1>
-<ul>
+  <br>
 
-<li> <div style="float:left"><b>Medical Imaging and Computer Vision</b>, Yonsei University, Seoul</div><div style="float:right">Mar 2025 - Present </div> <br>
-    Graduate Student Researcher (Advisor: SeongJae Hwang) <br>
-</li>
-<li> <div style="float:left"><b>Medical Imaging Artificial Intelligence Lab</b>, Yonsei University, Seoul</div><div style="float:right">Mar 2023 - Feb 2025 </div> <br>
-    Graduate Student Researcher (Advisor: Dong-Hyun Kim) <br>
-</li>
- <li> <div style="float:left"><b>Medical Imaging Artificial Intelligence Lab</b>, Yonsei University, Seoul</div><div style="float:right">Sep 2022 - Feb 2023 </div> <br>
-    Undergraduate Research Intern (Advisor: Dong-Hyun Kim) <br>
-</li>
-</ul>
-    </div>
-</div>
-    </div>
+  <!-- ===== Publications =====
+       NOTE: replace each AboutPageAssets/teasers/<name>.png with the paper's thumbnail,
+       and fill in the "#" links (Project Page / Paper / Code). Remove any link line you don't need. -->
+  <section class="section2">
+  <h2 class="sectionTitle">Publications <span style="font-size:15px; font-weight:400;">(* Equal Contribution)</span></h2>
+    <hr class="sectionRule">
+
+	<h3 style="margin-top:14px;"><b>Conference Papers</b></h3>
+
+	<div class="pubList">
+
+	  <!-- Controlling Motion Transfer -->
+	  <div class="pub">
+		<div class="pubThumb"><video src="AboutPageAssets/teasers/HALO.mp4" autoplay loop muted playsinline></video></div>
+		<div class="pubBody">
+		  <section class="section2Content">
+			<h2 class="sectionContentTitle">Controlling Motion Transfer in Diffusion Transformers via Attention Heads</h2>
+			<h3 class="sectionContentSubTitle"><b>Sunyoung Jung</b><sup>*</sup>, Jiwoo Park<sup>*</sup>, Yoonseok Choi, Kyobin Choo, Ming-Hsuan Yang, Seong Jae Hwang</h3>
+			<h3 class="sectionContentSubTitle"><em><span class="venue">ECCV 2026</span></em></h3>
+		  </section>
+		  <aside class="externalResourcesNav">
+			<div class="dropdown"><span></span><a href="https://sunyj-hxppy.github.io/halo/" target="_blank"><b>Project Page</b></a></div>
+			<div class="dropdown"><span></span><a href="https://arxiv.org/abs/2607.11081" target="_blank"><b>Paper</b></a></div>
+			<div class="dropdown"><span></span><a href="https://github.com/SunYJ-hxppy/HALO_official_code" target="_blank"><b>Code</b></a></div>
+		  </aside>
+		</div>
+	  </div>
+
+	  <!-- QWERTY -->
+	  <div class="pub">
+		<div class="pubThumb"><img src="AboutPageAssets/teasers/qwerty.png" alt="QWERTY teaser"></div>
+		<div class="pubBody">
+		  <section class="section2Content">
+			<h2 class="sectionContentTitle">QWERTY: Training-Free Motion Control via Query-Warped Video Diffusion Transformers</h2>
+			<h3 class="sectionContentSubTitle">Kyobin Choo, Youngmin Kim, Hyunkyung Han, Geunrip Park, Chanyoung Kim, <b>Sunyoung Jung</b>, Seong Jae Hwang</h3>
+			<h3 class="sectionContentSubTitle"><em><span class="venue">ECCV 2026</span></em></h3>
+		  </section>
+		  <aside class="externalResourcesNav">
+			<!-- <div class="dropdown"><span></span><a href="#" target="_blank"><b>Project Page</b></a></div> -->
+			<div class="dropdown"><span></span><a href="https://arxiv.org/abs/2607.01869" target="_blank"><b>Paper</b></a></div>
+			<!-- <div class="dropdown"><span></span><a href="#" target="_blank"><b>Code</b></a></div> -->
+		  </aside>
+		</div>
+	  </div>
+
+	  <!-- Query-Aligned Selective Injection -->
+	  <div class="pub">
+		<div class="pubThumb"><video src="AboutPageAssets/teasers/QUEST.mp4" autoplay loop muted playsinline></video></div>
+		<div class="pubBody">
+		  <section class="section2Content">
+			<h2 class="sectionContentTitle">Query-Aligned Selective Injection for Mitigating Reference Bias in Motion Transfer</h2>
+			<h3 class="sectionContentSubTitle"><b>Sunyoung Jung</b><sup>*</sup>, Jiwoo Park<sup>*</sup>, Yeonkyung Lee, Tae Eun Choi, Woojung Han, Seong Jae Hwang</h3>
+			<h3 class="sectionContentSubTitle"><em>Under Review</em></h3>
+		  </section>
+		  <aside class="externalResourcesNav">
+			<div class="dropdown"><span></span><a href="#" target="_blank"><b>Project Page</b></a></div>
+			<div class="dropdown"><span></span><a href="#" target="_blank"><b>Paper</b></a></div>
+			<div class="dropdown"><span></span><a href="#" target="_blank"><b>Code</b></a></div>
+		  </aside>
+		</div>
+	  </div>
+
+	  <!-- AQUA -->
+	  <div class="pub">
+		<div class="pubThumb"><img src="AboutPageAssets/teasers/aqua.gif" alt="AQUA teaser"></div>
+		<div class="pubBody">
+		  <section class="section2Content">
+			<h2 class="sectionContentTitle">AQUA: Aligned Query Fusion for Reference-Unbiased and Temporally Consistent Video Motion Transfer</h2>
+			<h3 class="sectionContentSubTitle"><b>Sunyoung Jung</b><sup>*</sup>, Jiwoo Park<sup>*</sup>, Yeonkyung Lee, Tae Eun Choi, Seong Jae Hwang</h3>
+			<h3 class="sectionContentSubTitle"><em>ICML 2026 Workshop &mdash; From Frames to Stories (F2S)</em></h3>
+		  </section>
+		  <aside class="externalResourcesNav">
+			<div class="dropdown"><span></span><a href="https://sunyj-hxppy.github.io/AQUA/" target="_blank"><b>Project Page</b></a></div>
+			<div class="dropdown"><span></span><a href="https://icml2026-f2s-workshop.github.io/F2S_papers/poster/5_AQUA_Aligned_Query_Fusion_fo.pdf" target="_blank"><b>Paper</b></a></div>
+			<!-- <div class="dropdown"><span></span><a href="#" target="_blank"><b>Code</b></a></div> -->
+		  </aside>
+		</div>
+	  </div>
+
+	  <!-- TMJ Disc Segmentation -->
+	  <div class="pub">
+		<div class="pubThumb"><img src="AboutPageAssets/teasers/tmj_disc.png" alt="TMJ Disc Segmentation teaser"></div>
+		<div class="pubBody">
+		  <section class="section2Content">
+			<h2 class="sectionContentTitle">Anatomically Consistent TMJ Disc Segmentation via Semantic Anchoring and Clinical Priors</h2>
+			<h3 class="sectionContentSubTitle">Dayun Ju, Chanyoung Kim, <b>Sunyoung Jung</b>, Seong Jae Hwang</h3>
+			<h3 class="sectionContentSubTitle"><em><span class="venue">MICCAI 2026</span></em></h3>
+		  </section>
+		  <aside class="externalResourcesNav">
+			<!-- <div class="dropdown"><span></span><a href="#" target="_blank"><b>Project Page</b></a></div> -->
+			<div class="dropdown"><span></span><a href="https://arxiv.org/abs/2606.21177" target="_blank"><b>Paper</b></a></div>
+			<!-- <div class="dropdown"><span></span><a href="#" target="_blank"><b>Code</b></a></div> -->
+		  </aside>
+		</div>
+	  </div>
+
+	  <!-- Interpreting ViT -->
+	  <div class="pub">
+		<div class="pubThumb"><img src="AboutPageAssets/teasers/interpreting_vit.png" alt="Interpreting Vision Transformers teaser"></div>
+		<div class="pubBody">
+		  <section class="section2Content">
+			<h2 class="sectionContentTitle">Interpreting Vision Transformers via Residual Replacement Model</h2>
+			<h3 class="sectionContentSubTitle">Jinyeong Kim<sup>*</sup>, Junhyeok Kim<sup>*</sup>, Yumin Shim, Joohyeok Kim, <b>Sunyoung Jung</b>, Seong Jae Hwang</h3>
+			<h3 class="sectionContentSubTitle"><em><span class="venue">NeurIPS 2025</span></em></h3>
+		  </section>
+		  <aside class="externalResourcesNav">
+			<!-- <div class="dropdown"><span></span><a href="#" target="_blank"><b>Project Page</b></a></div> -->
+			<div class="dropdown"><span></span><a href="https://arxiv.org/abs/2509.17401" target="_blank"><b>Paper</b></a></div>
+			<!-- <div class="dropdown"><span></span><a href="#" target="_blank"><b>Code</b></a></div> -->
+		  </aside>
+		</div>
+	  </div>
+
+	  <!-- TESLA -->
+	  <div class="pub">
+		<div class="pubThumb"><img src="AboutPageAssets/teasers/tesla.png" alt="TESLA teaser"></div>
+		<div class="pubBody">
+		  <section class="section2Content">
+			<h2 class="sectionContentTitle">TESLA: Test-time Reference-free Through-plane Super-resolution for Multi-contrast Brain MRI</h2>
+			<h3 class="sectionContentSubTitle">Yoonseok Choi, <b>Sunyoung Jung</b>, Mohammed A. Al-masni, Ming-Hsuan Yang, Dong-Hyun Kim</h3>
+			<h3 class="sectionContentSubTitle"><em><span class="venue">MICCAI 2025</span>, <b style="color:red">Oral presentation, Top 2.2%</b></em></h3>
+		  </section>
+		  <aside class="externalResourcesNav">
+			<div class="dropdown"><span></span><a href="https://yonsei-milab.github.io/tesla-miccai2025-webpage/" target="_blank"><b>Project Page</b></a></div>
+			<div class="dropdown"><span></span><a href="https://papers.miccai.org/miccai-2025/paper/0343_paper.pdf" target="_blank"><b>Paper</b></a></div>
+			<div class="dropdown"><span></span><a href="https://github.com/yoonseokchoi-ai/TESLA" target="_blank"><b>Code</b></a></div>
+		  </aside>
+		</div>
+	  </div>
+
+	  <!-- Deformation-Aware MICCAI 2024 -->
+	  <div class="pub">
+		<div class="pubThumb"><img src="AboutPageAssets/teasers/deformation_aware.png" alt="Deformation-Aware Segmentation teaser"></div>
+		<div class="pubBody">
+		  <section class="section2Content">
+			<h2 class="sectionContentTitle">Deformation-Aware Segmentation Network Robust to Motion Artifacts for Brain Tissue Segmentation using Disentanglement Learning</h2>
+			<h3 class="sectionContentSubTitle"><b>Sunyoung Jung</b>, Yoonseok Choi, Mohammed A. Al-masni, Minyoung Jung, Dong-Hyun Kim</h3>
+			<h3 class="sectionContentSubTitle"><em><span class="venue">MICCAI 2024</span></em></h3>
+		  </section>
+		  <aside class="externalResourcesNav">
+			<!-- <div class="dropdown"><span></span><a href="#" target="_blank"><b>Project Page</b></a></div> -->
+			<div class="dropdown"><span></span><a href="https://arxiv.org/abs/2412.03922" target="_blank"><b>Paper</b></a></div>
+			<div class="dropdown"><span></span><a href="https://github.com/SunYJ-hxppy/Multi-Net" target="_blank"><b>Code</b></a></div>
+		  </aside>
+		</div>
+	  </div>
+
+	</div><!-- /pubList conference -->
+
   </section>
 
-<!-- Publications -->
-<section id="papers" class="home-section wg-papers" style="padding: 20px 0;">
-  <style>
-    /* 리스트 자체 리셋 */
-    .ul-papers {
-      list-style: none;
-      padding-left: 0;
-      margin: 0;
-    }
+  <br>
 
-    /* 항목을 가로 정렬: 이미지 왼쪽, 텍스트 오른쪽 */
-    .ul-papers > li {
-      display: flex;
-      align-items: flex-start;     /* 텍스트 상단 정렬 */
-      gap: 16px;
-      margin-bottom: 28px;         /* 항목 간 간격 */
-    }
+  <!-- ===== Awards & Honors ===== -->
+  <section class="section3">
+	<h2 class="sectionTitle">Awards and Honors</h2>
+	<hr class="sectionRule">
+	  <b>Merit-based Scholarship for Science and Engineering Doctoral Students</b>, Korea, 2026 <br>
+	  <br>
+	  <b>Seoul Future Foundation Scholarship</b>, Korea, 2026 <br>
+	  <br>
+	  <b>ICMRI Best Trainee Scientific Awards Poster Presentation (Gold)</b>, Korea, 2025 <br>
+	  <br>
+	  <b>ISMRM 2024 Stipend</b>, Korean Society of Magnetic Resonance in Medicine, Korea, 2024 <br>
+	  <br>
+	  <b>Academic Achievement Award</b>, Yonsei University, Korea, 2019 <br>
+  </section>
 
-    /* 썸네일 박스: 크기 통일 + 자르기 */
-    .ul-papers .img {
-      flex: 0 0 260px;             /* 고정 너비(원하면 200~320px로 조절) */
-      max-width: 100%;
-    }
+  <br>
 
-    /* 이미지 자체: 박스에 맞춰 꽉 채우기 */
-    .ul-papers .img img {
-      width: 100%;
-      aspect-ratio: 16 / 9;        /* 통일된 비율(필요시 4/3 등으로 교체) */
-      object-fit: cover;           /* 넘치는 부분 잘라서 채우기 */
-      display: block;              /* 인라인 이미지 공백 제거 */
-      border-radius: 4px;          /* 선택 */
-    }
+  <!-- ===== Academic Activities ===== -->
+  <section class="section3">
+	<h2 class="sectionTitle">Academic Activities</h2>
+	<hr class="sectionRule">
+	  <b>Conference Reviewer</b> <br>
+	  IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2026 <br>
+	  European Conference on Computer Vision (ECCV), 2026 <br>
+	  Neural Information Processing Systems (NeurIPS), 2026 <br>
+  </section>
 
-    /* 본문 영역은 남은 공간 모두 */
-    .ul-papers .description {
-      flex: 1 1 auto;
-      min-width: 0;                /* 긴 제목 줄바꿈 안정화 */
-    }
+  <br><br><br>
 
-    /* 타이포/여백 정리(선택) */
-    .ul-papers .title { margin: 0 0 4px; font-weight: 700; }
-    .ul-papers .authors { margin: 0 0 4px; }
-    .ul-papers .venue { margin: 0 0 6px; font-style: italic; }
-    .ul-papers .resources { margin: 0; }
 
-  </style>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <h1>Publications</h1>
-
-        <ul class="ul-papers">
-          <li>
-            <div class="img">
-              <img src="papers/images/AQUA_query.gif" class="img-responsive" alt="">
-            </div>
-            <div class="description">
-              <p class="title">AQUA: Aligned Query Fusion for Reference-Unbiased and Temporally Consistent Video Motion Transfer</p>
-              <p class="authors"><b>Sunyoung Jung<sup>*</sup></b>, Jiwoo Park<sup>*</sup>, Yeonkyung Lee, Tae Eun Choi, Seong Jae Hwang</p>
-              <p class="venue"><i>Under Review</i></p>
-              <p class="resources">[
-                <a href="https://aqua-aaai26.github.io/aqua/">project</a>
-              ]</p>
-            </div>
-          </li>
-
-          <li>
-            <div class="img">
-              <img src="papers/images/2025_5_kim.png" class="img-responsive" alt="">
-            </div>
-            <div class="description">
-              <p class="title">Interpreting vision transformers via residual replacement model</p>
-              <p class="authors">Jinyeong Kim<sup>*</sup>, Junhyeok Kim<sup>*</sup>, Yumin Shim, Joohyeok Kim, <b>Sunyoung Jung</b>, Seong Jae Hwang</p>
-              <p class="venue"><i>NeurIPS 2025</i></p>
-              <p class="resources">[
-                <a href="https://arxiv.org/abs/2509.17401">paper</a>
-              ]</p>
-            </div>
-          </li>
-
-          <li>
-            <div class="img">
-              <img src="papers/images/miccai2025.jpg" class="img-responsive" alt="">
-            </div>
-            <div class="description">
-              <p class="title">TESLA: Test-time Reference-free Through-plane Super-resolution for Multi-contrast Brain MRI</p>
-              <p class="authors">Yoonseok Choi, <b>Sunyoung Jung</b>, Mohammed A. Al-masni, Ming-Hsuan Yang, and Dong-Hyun Kim</p>
-              <p class="venue"><i>MICCAI 2025, <span style="color:#ff0000; font-weight:bold;">Oral presentation (Top 2.2%)</span></i></p>
-              <p class="resources">[
-                <a href="https://yonsei-milab.github.io/tesla-miccai2025-webpage/">project</a>
-              ]</p>
-            </div>
-          </li>
-
-          <li>
-            <div class="img">
-              <img src="papers/images/miccai2024.jpg" class="img-responsive" alt="">
-            </div>
-            <div class="description">
-              <p class="title">Deformation-Aware Segmentation Network Robust to Motion Artifacts for Brain Tissue Segmentation using Disentanglement Learning</p>
-              <p class="authors"><b>Sunyoung Jung</b>, Yoonseok Choi, Mohammed A. Al-masni, Minyoung Jung, and Dong-Hyun Kim</p>
-              <p class="venue"><i>MICCAI 2024</i></p>
-              <p class="resources">[
-                <a href="https://link.springer.com/chapter/10.1007/978-3-031-72114-4_21">paper</a> |
-                <a href="https://github.com/SunYJ-hxppy/Multi-Net">code</a>
-              ]</p>
-            </div>
-          </li>
-        </ul>
-
-      </div>
-    </div>
-  </div>
 </section>
-
-
-<!-- Academic Activities -->
-  <section id="activities" class="home-section wg-blank   " style="padding: 20px 0 20px 0;" >
-    <div class="container">
-
-<div class="row">  
-    <div class="col-lg-12">
-      <h1>Academic Activities</h1>  
-<!--       <h2 id="reviewer">Organizing Committees</h2>
-      <ul>
-        <li> MICCAI Student Board - Local Student Liaison Officer
-          <ul>
-            <li>Organizing workshops, webinars, and conference events for MICCAI 2025</li>
-          </ul>
-        </li>
-      </ul> -->
-      <h2 id="reviewer">Reviewer</h2>
-      <ul>
-        <li> CVPR 2026 </li>
-      </ul>
-      
-
-    </div>
-</div>
-    </div>
-  </section>
-
-<!-- Awards & Honors -->
-<section id="awards" class="home-section wg-blank   " style="padding: 20px 0 20px 0;" >
-    <div class="container">
-
-<div class="row">  
-    <div class="col-lg-12">
-      <h1>Awards &amp; Honors</h1>      
-      
-<ul>
-  <!-- <li> Cognitive and Biological Factors Related to the Development of Question-Asking Abilities in School-Aged Children, Junior Convergence Research Group (1st place, 1,500,000 won), 2025</li>
-  <li> BK21 FOUR (Brain Korea 21 Four) Project; Support Program for Outstanding Graduate Students' International Joint Training 1 year from the commencement of training (12months, 26,000,000 won), 2024</li>
-  <li> Structural brain correlates of foreign language proficiency and experiences, Junior Convergence Research Group (3rd place, 500,000 won), 2023</li>
-  <li> DSU-Net2D: Deep Supervision U-Net2D, Medical Image Processing Contest with Rayence and Yonsei University (2nd place, 2,000,000 won), 2022</li> -->
-</ul>
-    </div>
-</div>
-    </div>
-  </section>
-
-
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script> 
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js" integrity="sha256-EErZamuLefUnbMBQbsEqu1USa+btR2oIlCpBJbyD4/g=" crossorigin.="anonymous"></script>
-    
-
-    <script>const code_highlighting = true;</script>
-    <script>const isSiteThemeDark = false;</script>
-    
-    <script>
-      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
-      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
-      const content_type = {
-        'post': "Posts",
-        'project': "Projects",
-        'publication' : "Publications",
-        'talk' : "Talks"
-        };
-    </script>
-
-    <script id="search-hit-fuse-template" type="text/x-template">
-      <div class="search-hit" id="summary-{{key}}">
-      <div class="search-hit-content">
-        <div class="search-hit-name">
-          <a href="{{relpermalink}}">{{title}}</a>
-          <div class="article-metadata search-hit-type">{{type}}</div>
-          <p class="search-hit-description">{{snippet}}</p>
-        </div>
-      </div>
-      </div>
-    </script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
-
-    <script src="/js/academic.min.a8d7005002cb4a052fd6d721e83df9ba.js"></script>
-
-
-  
-  <div class="container">
-    <footer class="site-footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 text-center text-md-left">
-            <p class="copyright">© 2025 Sunyoung Jung</p>
-          </div>
-          
-        </div>
-      </div>
-    </footer>
-
-  </div>
-  
-
-<div id="modal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Cite</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <pre><code class="tex hljs"></code></pre>
-      </div>
-      <div class="modal-footer">
-        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
-          <i class="fas fa-copy"></i> Copy
-        </a>
-        <a class.="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
-          <i class="fas fa-download"></i> Download
-        </a>
-        <div id="modal-error"></div>
-      </div>
-    </div>
-  </div>
-</div>
-<script src="/js/theme-switcher.js"></script>
 </body>
 </html>
