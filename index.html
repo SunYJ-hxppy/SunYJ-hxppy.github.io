@@ -74,6 +74,11 @@
   .newsList li { margin-bottom: 10px; line-height: 1.5; }
   .newsDate { font-weight: 700; color: #282727; }
   .venue { color: #b30000; font-style: normal; }
+  /* ====== Social links placed right under intro text ====== */
+  header .profileHeader .socialNetworkNavBar { clear: none; margin: 42px 0 0 0 !important; }
+  @media only screen and (min-width: 481px) {
+    header .profileHeader .socialNetworkNavBar { text-align: left; }
+  }
 </style>
 </head>
 
@@ -95,26 +100,21 @@
 	<br>
 	<br>
 	I'd love to connect with people who share similar interests! Feel free to reach out via email!
-  </section>
 
   <!-- Links to Social network accounts -->
   <aside class="socialNetworkNavBar">
-	<div class="socialNetworkNav">
-		<a href="AboutPageAssets/images/cv.pdf" target="_blank">
-      <img src="AboutPageAssets/images/cv.png" alt="CV" width="30"></a>  </div>
-	   <div class="socialNetworkNav">
-		   <a href="mailto:sunyoungj@yonsei.ac.kr">
-      <img src="AboutPageAssets/images/mail.png"  alt="Email" width="30" ></a> </div>
     <div class="socialNetworkNav">
 		<a href="https://scholar.google.com/citations?hl=en&user=gdlXTqUAAAAJ" target="_blank">
       <img src="AboutPageAssets/images/scholar.jpg"  alt="Google Scholar" width="30"></a>  </div>
 	  	  <div class="socialNetworkNav">
 		<a href="https://www.linkedin.com/in/sunyoungjung1/" target="_blank">
       <img src="AboutPageAssets/images/linkedin.png" alt="LinkedIn" width="30"></a>  </div>
-    <div class="socialNetworkNav">
-		<a href="https://github.com/SunYJ-hxppy" target="_blank">
-      <img src="AboutPageAssets/images/github.png" alt="GitHub" width="30"></a>  </div>
+	<div class="emailText" style="display: inline-block; vertical-align: top; height: 30px; line-height: 30px; font-size: 16px; color: #282727; white-space: nowrap;">
+		<a href="mailto:sunyoungj@yonsei.ac.kr" style="text-decoration: none;">
+      <img src="AboutPageAssets/images/mail.png" alt="Email" width="30" style="vertical-align: middle;"></a>: <a href="mailto:sunyoungj@yonsei.ac.kr">sunyoungj@yonsei.ac.kr</a></div>
   </aside>
+  </section>
+
 </header>
 
 <!-- content -->
